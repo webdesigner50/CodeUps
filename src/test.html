@@ -1,0 +1,30 @@
+<dl class="contact-form__name">
+  <dt>お名前<span class="contact-form__required">必須</span></dt>
+  <dd>[text* text-name class:contact-form__name-input placeholder "沖縄　太郎"]</dd>
+</dl>
+<dl class="contact-form__email">
+  <dt>メールアドレス<span class="contact-form__required">必須</span></dt>
+  <dd>[email* mail-address class:contact-form__email-input placeholder "aaa000@ggmail.com"]</dd>
+</dl>
+<dl class="contact-form__tel">
+  <dt>電話番号<span class="contact-form__required">必須</span></dt>
+  <dd>[tel* tel class:contact-form__tel-input placeholder "000-0000-0000"]</dd>
+</dl>
+<dl class="contact-form__checkbox1">
+  <dt class="contact-form__checkbox1-label">お問合せ項目<span class="contact-form__required">必須</span></dt>
+  <dd>[checkbox checkbox1 class:contact-form__checkbox1-data "ダイビング講習について" "ファンデイビングについて" "体験ダイビングについて" "スペシャルダイビングについて"]</dd>
+</dl>
+<dl class="contact-form__select">
+  <dt>キャンペーン</dt>
+  <dd>[select tag-name class:contact-form__select-data]</dd>
+</dl>
+<dl class="contact-form__textarea">
+  <dt>お問合せ内容<span class="contact-form__required">必須</span></dt>
+  <dd>[textarea* textarea class:contact-form__textarea-data-input]</dd>
+</dl>
+<dl class="contact-form__checkbox2">
+  <dt class="contact-form__checkbox2-label"></dt>
+  <dd>[checkbox checkbox2 class:contact-form__checkbox2-data default:0 "個人情報の取り扱いについて同意のうえ送信します。 "]</dd>
+</dl>
+
+<div class="contact-form__button">[submit class:button "Send"]</div>

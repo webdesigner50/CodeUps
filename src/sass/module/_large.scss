@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.large {
+  width: rem(492);
+  flex: 2; /* 1:2の比率を持つ大きなアイテム */
+}
+.large img {
+  aspect-ratio: 492 / 746;
+}

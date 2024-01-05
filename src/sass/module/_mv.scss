@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.mv {
+  width: 100%;
+  height: rem(460);
+  min-height: rem(300);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  position: relative;
+  @include mq("md") {
+    height: rem(548);
+  }
+}
+.mv__inner {
+  width: inherit;
+  height: inherit;
+  min-height: inherit;
+}
+
+.mv__inner img,
+.mv__inner source {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  aspect-ratio: 375 / 460;
+  @include mq("md") {
+    aspect-ratio: 1440 / 548;
+  }
+}
+
+.mv__title {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 45%;
+  color: $white;
+
+  @include mq("md") {
+    top: 50%;
+  }
+}
+
+.mv__main-title {
+  text-align: center;
+  font-family: $second-font-family;
+  font-size: rem(40);
+  font-weight: $regular;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+
+  @include mq("md") {
+    font-size: rem(80);
+  }
+}
+.mv__main-title--lowercase {
+  text-transform: lowercase;
+}

@@ -1,0 +1,24 @@
+@use "global" as *;
+
+.campaign-cards {
+  display: grid;
+  gap: rem(45) rem(40);
+  padding: 0 rem(32);
+  @include mq("md") {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(90) rem(40);
+    padding: 0 0;
+  }
+}
+.campaign-cards--side {
+  grid-template-columns: 1fr;
+  gap: rem(20) 0;
+  padding: 0 0;
+  @include mq("md") {
+    grid-template-columns: 1fr;
+    padding: 0 0;
+  }
+}
+.campaign-cards__item--side:not(:first-child) {
+  margin-top: rem(40);
+}

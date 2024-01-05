@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.blog-contents-main__body li span {
+  @include mq("md") {
+    position: relative;
+    padding-left: rem(30);
+  }
+}
+.blog-contents-main__body li span::before {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    width: rem(18);
+    height: rem(18);
+    top: rem(1);
+    left: rem(1);
+    background-image: url(../images/common/blog-starfish-img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 0.3s background-color;
+  }
+}

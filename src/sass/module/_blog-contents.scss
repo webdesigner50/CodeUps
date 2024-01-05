@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.blog-contents {
+  width: 100%;
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: 65.37% 27.222%;
+    gap: 0 rem(80);
+  }
+}
+// .blog-contents__main {
+// @include mq("md") {
+// width: 65.37%;
+// width: 100%;
+// }
+// }
+.blog-contents__side {
+  // margin-top: rem(95);
+  margin-top: rem(90);
+  @include mq("md") {
+    // width: 27.222%;
+    width: 100%;
+    // margin-top: rem(10);
+  }
+}

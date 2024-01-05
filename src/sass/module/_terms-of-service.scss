@@ -1,0 +1,51 @@
+@use "global" as *;
+
+.inner.terms-of-service__inner {
+  position: relative;
+  width: 100%;
+  max-width: rem(600);
+  @include mq("md") {
+    max-width: rem(850);
+  }
+}
+.terms-of-service__inner::before {
+  content: "";
+  position: absolute;
+  width: rem(120);
+  height: rem(55);
+  top: rem(-25);
+  left: calc(50% - min(48.5vw, rem(620)));
+  background-image: url(../images/common/top-voice-fish2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include mq("md") {
+    width: rem(301);
+    max-width: rem(1280);
+    height: rem(138);
+    top: rem(-70);
+  }
+}
+.terms-of-service__title {
+  font-size: rem(24);
+  font-weight: $medium;
+  @include mq("md") {
+    font-size: rem(32);
+  }
+}
+.terms-of-service__contents {
+  margin-top: rem(40);
+  text-align: left;
+}
+.terms-of-service__contents ol li {
+  list-style: decimal;
+  margin-left: 1em;
+}
+.terms-of-service__contents p {
+  margin-top: rem(40);
+  font-weight: $regular;
+}
+.terms-of-service__contents p:nth-child(5) {
+  margin-top: 0;
+  font-weight: $regular;
+}

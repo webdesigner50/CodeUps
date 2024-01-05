@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.layout-top-footer {
+  margin-top: rem(105);
+
+  @include mq("md") {
+    margin-top: rem(160);
+  }
+}
+.layout-top-footer--contact {
+  margin-top: rem(145);
+}
+.layout-top-footer--contact-result {
+  @include mq("md") {
+    margin-top: rem(125);
+  }
+}
+.layout-top-footer--status-404 {
+  @include mq("md") {
+    margin-top: rem(125);
+  }
+}
+.layout-top-footer--404 {
+  padding-top: rem(105);
+
+  @include mq("md") {
+    padding-top: rem(160);
+  }
+}

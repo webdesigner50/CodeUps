@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.tab-whale-icon span {
+  position: relative;
+  @include mq("md") {
+    padding-left: rem(70);
+  }
+}
+.tab-whale-icon span::before {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    width: rem(64);
+    height: rem(64);
+    top: rem(-18);
+    left: rem(-6);
+    background-image: url(../images/common/information-whale-img2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 0.3s background-color;
+  }
+}
+
+.tab-whale-icon.is-active span::before {
+  @include mq("md") {
+    background-image: url(../images/common/information-whale-img1.png);
+  }
+}

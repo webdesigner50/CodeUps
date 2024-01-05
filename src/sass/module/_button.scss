@@ -1,0 +1,132 @@
+@use "global" as *;
+
+.button {
+  display: inline-block;
+  width: rem(202);
+  padding: rem(16) 0;
+  position: relative;
+  font-size: rem(14);
+  font-weight: normal;
+  line-height: 1.571;
+  // cursor: pointer;
+  text-align: center;
+  background-color: $green1;
+  color: $white;
+  transition: color 0.2s;
+  border: rem(1) solid $green1;
+  z-index: 1;
+}
+.button--reverse {
+  background-color: $white;
+  color: $green1;
+}
+// 最初の文字装飾（大文字に変更）
+.button::first-letter {
+  text-transform: uppercase;
+}
+// 右下に白い枠をずらして表示
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translate(rem(4), rem(4));
+  border: rem(1) solid $green1;
+  z-index: -2;
+}
+.button--reverse::before {
+  border: rem(1) solid $white;
+}
+// CSSアニメーション（cubic-bezierで細かく指定）
+.button::after {
+  background-color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+.button--reverse::after {
+  background-color: $green1;
+}
+// マウスホバー時は文字を緑色
+.button:hover,
+.button:hover span {
+  @include mq("md") {
+    color: $green1;
+    opacity: 1;
+  }
+}
+.button--reverse:hover,
+.button--reverse:hover span {
+  @include mq("md") {
+    color: $white;
+    // border: rem(1) solid $white;
+    opacity: 1;
+  }
+}
+.button--reverse:hover {
+  @include mq("md") {
+    border: rem(1) solid $white;
+  }
+}
+.button:hover::after {
+  @include mq("md") {
+    transform: scale(1, 1);
+  }
+}
+// .button--reverse:hover::after {
+//   @include mq("md") {
+//     transform: scale(1, 1);
+//   }
+// }
+.button span {
+  padding-right: rem(48);
+  position: relative;
+}
+// 矢印を表示（通常時は白色）
+.button span::after {
+  content: "";
+  position: absolute;
+  width: rem(40);
+  height: rem(7);
+  top: 40.74%;
+  transform: translateY(-50%);
+  right: 0;
+  background-image: url(../images/common/button-arrow1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: 0.2s background-color;
+}
+.button--reverse span::after {
+  background-image: url(../images/common/button-arrow2.png);
+}
+// 矢印を表示（マウスホバー時は白色）
+.button:hover .wpcf7-submit {
+  color: $green1;
+}
+.button:hover span::after {
+  @include mq("md") {
+    background-image: url(../images/common/button-arrow2.png);
+  }
+}
+.button--reverse:hover span::after {
+  @include mq("md") {
+    background-image: url(../images/common/button-arrow1.png);
+  }
+}
+.button--contact,
+.button--contact span {
+  padding: 0 0;
+}
+.button--contact span::after {
+  margin-right: rem(30);
+}

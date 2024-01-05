@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.blog-cards-popular__inner {
+  margin-left: rem(25);
+  margin-right: rem(25);
+  @include mq("md") {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.blog-cards-popular__items {
+  margin-top: rem(20);
+}
+
+.blog-cards-popular__item + .blog-cards-popular__item {
+  margin-top: rem(20);
+
+  @include mq("md") {
+    margin-top: rem(25);
+  }
+}

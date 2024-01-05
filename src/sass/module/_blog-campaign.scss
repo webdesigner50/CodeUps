@@ -1,0 +1,24 @@
+@use "global" as *;
+
+.blog-campaign__inner {
+  margin-left: rem(25);
+  margin-right: rem(25);
+  @include mq("md") {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.blog-campaign__items {
+  margin-top: rem(30);
+}
+.blog-campaign__item {
+  width: 100%;
+  margin-top: rem(20);
+}
+.blog-campaign__item--sub {
+  margin-top: rem(20);
+}
+.blog-campaign__button {
+  margin-top: rem(50);
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.price-lists__item + .price-lists__item {
+  margin-top: rem(48);
+
+  @include mq("md") {
+    margin-top: rem(34);
+  }
+}

@@ -1,0 +1,72 @@
+@use "global" as *;
+
+.header {
+  background-color: rgba($color: $black1, $alpha: 0.68);
+  width: 100vw;
+  height: rem(80);
+
+  @include mq("md") {
+    height: rem(90);
+  }
+}
+.header.is-active {
+  background-color: $green1;
+  opacity: 1;
+  z-index: 15000;
+}
+
+.header__inner {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: rem(15);
+  padding-right: rem(15);
+  z-index: 5001;
+
+  @include mq("md") {
+    padding-left: rem(40);
+    padding-right: rem(20);
+  }
+}
+
+.header__logo {
+  width: rem(102);
+  height: inherit;
+  z-index: 9999;
+
+  @include mq("md") {
+    width: rem(133);
+  }
+}
+
+.header__logo a {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $bold;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: $white;
+}
+.header__hamburger {
+  height: inherit;
+}
+
+.header__pc-nav {
+  height: inherit;
+}
+
+.header__sp-nav {
+  position: absolute;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+}

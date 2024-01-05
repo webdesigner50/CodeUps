@@ -1,0 +1,83 @@
+@use "sass:math";
+
+// インナー幅設定
+// コンテンツのインナー幅（最も共通の幅が多い部分）
+$inner: 1080px;
+// ※キュンパス幅ではなくインナーの幅を指す
+
+// 余白
+$padding-pc: 25px;
+$padding-sp: 15px;
+
+////////////////////
+// フォント設定
+////////////////////
+
+$base-font-family: "Gotu", "Noto Sans JP", sans-serif;
+$second-font-family: "Lato", sans-serif;
+// ※検証ツールでしっかり反映されているか確認する
+
+body {
+  font-family: $base-font-family;
+}
+
+// フォントウェイト
+$regular: 300;
+$normal: 400;
+$medium: 500;
+$bold: 700;
+
+////////////////////
+// 色の指定
+////////////////////
+
+//色指定（共通性のあるものは出来る限り指定すると良い）
+$black1: #0d2936;
+$black2: #000;
+$gray2: #ddf0f1;
+$white: #fff;
+$green1: #408f95;
+$green2: #ddf0f1;
+$red: #c94800;
+
+/*デフォルト色の指定*/
+$border-cr-default: #aaaaaa; //デフォルト時のボーダーの色
+$border-cr: #391e88; //inputのhover or focus時の色
+$back-cr: #fff; //input（テキスト系）の背景色
+
+/*サイズ等の指定*/
+$fz: rem(16); //入力するときのfont-size
+$padding-und: rem(10); //paddingの指定（上下） inputの内側の余白で使う
+$padding-lnr: rem(10); //paddingの指定（左右） inputの内側の余白で使う
+$border-r: rem(6); //border-radius（テキスト系）
+
+/*ボタン系の指定*/
+$fz-btn: rem(14); //送信ボタンのfont-size
+$back-cr-btn: transparent linear-gradient(90deg, #7633a4 0%, #250d65 100%) 0% 0% no-repeat padding-box; //ボタンの背景色
+$font-cr-btn: white; //ボタンのフォントカラー
+$padding-und-btn: rem(20); //paddingの指定（上下） btnの内側の余白で使う
+$padding-lnr-btn: rem(72); //paddingの指定（左右） btnの内側の余白で使う
+$border-r-btn: rem(50);
+
+/*ラジオボタンの指定*/
+$radio-fz: rem(12); //フォントサイズ
+$radio-size: rem(18); //外枠の幅高さ
+$radio-bg-cr: #fff; //外枠の背景色
+$radio-border-cr: #707070; //外枠の色
+$radio-size-inner: rem(12); //チェックマーク幅高さ
+$radio-bg-cr-inner: #391e88; //チェックマークの背景色
+$radio-space: rem(10); //チェックマークと文字の距離
+$radio-space-betweenRadio: rem(35); //ラジオボタンの間の距離
+
+/*チェックボックスの指定*/
+$check-fz: rem(14); //フォントサイズ
+$check-size: rem(200); //外枠の幅高さ
+$check-bg-cr: $white; //外枠の背景色
+$check-border-cr: $green1; //外枠の色
+$check-bg-cr-inner: red; //チェックマークの背景色
+$check-space: rem(5); //チェックマークと文字の距離
+$check-space-betweenRadio: rem(20); //チェックボックス間の距離
+$check-weight: 4px; //チェックマークの線の太さ(px)
+
+/*テキストエリアの指定*/
+$textarea-height: rem(255);

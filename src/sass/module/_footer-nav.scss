@@ -1,0 +1,94 @@
+@use "global" as *;
+
+.footer-nav {
+  width: 100%;
+  display: flex;
+  background-color: $green1;
+  color: $white;
+}
+.footer-nav--sitemap {
+  background-color: $white;
+  color: $black1;
+}
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+.footer-nav__inner {
+  display: flex;
+  padding: rem(96) rem(15) rem(80);
+}
+
+.footer-nav__left,
+.footer-nav__right {
+  width: calc(50% - rem(5));
+
+  @include mq("md") {
+    width: calc(50% - rem(14));
+
+    display: flex;
+    flex-direction: column;
+    height: rem(274);
+    flex-wrap: wrap;
+    row-gap: rem(16);
+    column-gap: rem(45);
+  }
+}
+
+.footer-nav__right {
+  margin-left: rem(10);
+
+  @include mq("md") {
+    margin-left: rem(28);
+  }
+}
+
+.footer-nav__left-items,
+.footer-nav__right-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav__left-item a,
+.footer-nav__right-item a {
+  width: 100%;
+  display: block;
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  padding-left: rem(22);
+  font-weight: $normal;
+  line-height: 1.125;
+}
+
+.footer-nav__left-item:first-child a,
+.footer-nav__right-item:first-child a {
+  font-weight: $bold;
+  position: relative;
+}
+
+.footer-nav__left-item:first-child a::before,
+.footer-nav__right-item:first-child a::before {
+  content: "";
+  position: absolute;
+  width: rem(18);
+  height: rem(18);
+  top: rem(8);
+  left: 0;
+  background-image: url(../images/common/menu-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.footer-nav__left-item--sitemap:first-child a::before,
+.footer-nav__right-item--sitemap:first-child a::before {
+  background-image: url(../images/common/menu-icon-black.png);
+}
+
+.footer-nav__left-items + .footer-nav__left-items,
+.footer-nav__right-items + .footer-nav__right-items {
+  margin-top: rem(16);
+
+  @include mq("md") {
+    margin-top: 0;
+  }
+}

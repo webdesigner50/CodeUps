@@ -1,0 +1,136 @@
+@use "global" as *;
+
+.inner.price__inner {
+  position: relative;
+  width: 100%;
+  max-width: rem(600);
+  @include mq("md") {
+    max-width: rem(750);
+  }
+}
+
+.price__inner::before {
+  content: "";
+  position: absolute;
+  width: rem(120);
+  height: rem(55);
+  top: rem(-25);
+  left: calc(50% - min(48.5vw, rem(620)));
+  background-image: url(../images/common/top-voice-fish2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include mq("md") {
+    width: rem(301);
+    max-width: rem(1280);
+    height: rem(138);
+    top: rem(-70);
+  }
+}
+.price__list {
+  width: 100%;
+  // @include mq("md") {
+  // width: rem(700);
+  // margin-left: auto;
+  // margin-right: auto;
+  // }
+}
+.price__menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(40);
+  @include mq("md") {
+    flex-direction: row;
+    // justify-content: space-between;
+  }
+}
+.price__menu:not(:first-child) {
+  margin-top: rem(75);
+}
+.price__title {
+  width: 100%;
+  align-items: center;
+  background-color: $green1;
+  color: $white;
+  display: flex;
+  height: 100%;
+  text-align: center;
+  font-size: rem(14);
+  justify-content: center;
+  z-index: 10;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+  @include mq("md") {
+    font-size: rem(16);
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    height: auto;
+    // width: 28.571%;
+    // width: rem(200);
+    width: 40%;
+  }
+}
+.price__title img {
+  margin-right: rem(8);
+  width: rem(24);
+  height: rem(24);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  @include mq("md") {
+    margin-right: 0;
+    width: rem(64);
+    height: rem(64);
+  }
+}
+.price__text {
+  flex-direction: column;
+  width: 100%;
+}
+.price__dl {
+  display: flex;
+  border-left: 1px solid $green1;
+  border-right: 1px solid $green1;
+  border-bottom: 1px solid $green1;
+  align-items: center;
+}
+.price__dl:first-child {
+  border-top: 1px solid $green1;
+}
+.price__course {
+  display: inline-block;
+  width: 69.275%;
+  text-align: left;
+  padding-top: rem(17.5);
+  padding-bottom: rem(17.5);
+  br {
+    display: none;
+  }
+  @include mq("md") {
+    width: 67.6%;
+    text-align: left;
+    padding-left: rem(15);
+  }
+}
+.price__course--top {
+  padding-top: rem(8);
+  padding-bottom: 0;
+}
+.price__price {
+  display: inline-block;
+  width: 30.725%;
+  border-left: 1px solid $green1;
+  text-align: right;
+  padding-top: rem(17.5);
+  padding-bottom: rem(17.5);
+  padding-right: rem(6);
+  @include mq("md") {
+    width: 32.4%;
+    padding-right: rem(16);
+  }
+}
+.price__price--top {
+  padding-top: rem(8);
+  padding-bottom: 0;
+  border-left: none;
+}

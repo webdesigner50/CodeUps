@@ -1,0 +1,79 @@
+@use "global" as *;
+
+.top-mv {
+  width: 100%;
+  min-height: rem(500);
+  height: 100vh;
+}
+
+.top-mv__inner {
+  width: 100%;
+  min-height: inherit;
+  height: inherit;
+  position: relative;
+}
+
+.top-mv__slider,
+.swiper-slide picture,
+.swiper-slide img {
+  min-height: inherit;
+  height: inherit;
+}
+
+.top-mv__slider .swiper-slide img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 375 / 667;
+  @include mq("md") {
+    aspect-ratio: 1440 / 768;
+  }
+}
+
+.top-mv__title {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 44%;
+  color: $white;
+
+  @include mq("md") {
+    top: 42%;
+  }
+}
+
+.top-mv__main-title {
+  text-align: center;
+  font-family: $second-font-family;
+  font-size: rem(40);
+  font-weight: $regular;
+  line-height: 1.2;
+  letter-spacing: 0.54em;
+  text-indent: 0.54em;
+  text-transform: uppercase;
+
+  @include mq("md") {
+    font-size: rem(80);
+  }
+}
+.top-mv__main-title--loading {
+  color: $green1;
+}
+
+.top-mv__sub-title {
+  text-align: center;
+  font-size: rem(20);
+  font-weight: $normal;
+  line-height: 1.66;
+
+  @include mq("md") {
+    margin-top: rem(4);
+  }
+}
+.top-mv__sub-title--loading {
+  color: $green1;
+}
+.top-swiper-button-prev,
+.top-swiper-button-next {
+  display: none !important;
+}

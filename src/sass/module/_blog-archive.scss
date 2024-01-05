@@ -1,0 +1,84 @@
+@use "global" as *;
+
+.blog-archive__inner {
+  margin-left: rem(25);
+  margin-right: rem(25);
+  @include mq("md") {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.blog-archive__lists {
+  margin-top: rem(35);
+  color: $green1;
+  font-size: rem(24);
+}
+.blog-archive__year,
+.blog-archive__month {
+  color: $green1;
+}
+.blog-archive__year:hover {
+  cursor: pointer;
+}
+.blog-archive__year span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: rem(24);
+  line-height: 1;
+  color: $green1;
+  padding-left: rem(32);
+  position: relative;
+}
+.blog-archive__year span::before {
+  content: "";
+  position: absolute;
+  width: rem(17);
+  height: rem(20);
+  top: 53%;
+  left: rem(4);
+  transform: translateY(-50%);
+  background-color: $green1;
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.blog-archive__year.open span::before {
+  top: 32%;
+  transform: rotate(90deg);
+}
+/* 特定の月を最初に表示するためのスタイル */
+.blog-archive__month {
+  text-indent: 1em;
+  display: none;
+}
+.blog-archive__month a {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: rem(24);
+  line-height: calc(35 / 24);
+  color: $green1;
+  padding-left: rem(32);
+  position: relative;
+}
+
+.blog-archive__month a::before {
+  content: "";
+  position: absolute;
+  width: rem(17);
+  height: rem(20);
+  top: 50%;
+  left: rem(4);
+  transform: translateY(-50%);
+  background-color: $green1;
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+.blog-archive__list:first-of-type .js-side-archive.open + .blog-archive__month {
+  display: block; /* 最初の年が open クラスを持っている場合に月リストを表示 */
+}
+// .blog-archive__lists span {
+//   transform: rotate(90deg);
+// }
+.blog-archive__year {
+  color: $green1;
+}
+.blog-archive__year span {
+  transform: rotate(90deg);
+}

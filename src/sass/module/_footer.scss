@@ -1,0 +1,82 @@
+@use "global" as *;
+
+.footer {
+  background-color: $green1;
+  padding-top: rem(46);
+  padding-bottom: rem(70);
+
+  @include mq("md") {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+  }
+}
+.footer--sitemap {
+  background-color: $white;
+  padding-top: rem(10);
+  padding-bottom: rem(90);
+  @include mq("md") {
+    padding-bottom: 0;
+  }
+}
+
+.footer__wrap {
+  @include mq("md") {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.footer__logo img {
+  width: rem(120);
+
+  @include mq("md") {
+    width: rem(200);
+  }
+}
+
+.footer__sns-links {
+  margin-top: rem(18);
+  display: flex;
+
+  @include mq("md") {
+    margin-top: 0;
+    margin-left: rem(40);
+    padding-bottom: rem(5);
+  }
+}
+
+.footer__sns-link + .footer__sns-link {
+  margin-left: rem(16);
+}
+
+.footer__sns-link img {
+  width: rem(24);
+  height: rem(24);
+
+  @include mq("md") {
+    width: rem(32);
+    height: rem(32);
+  }
+}
+
+.footer__nav {
+  margin-top: rem(30);
+
+  @include mq("md") {
+    margin-top: rem(16);
+  }
+}
+
+.footer__copyright {
+  margin-top: rem(26);
+  font-size: rem(12);
+  color: $white;
+  display: block;
+  word-wrap: break-word;
+  text-align: center;
+
+  @include mq("md") {
+    margin-top: rem(55);
+    font-size: rem(14);
+  }
+}

@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.page-head__img {
+  max-width: rem(1440);
+  width: 100%;
+}
+
+.page-head__img img {
+  aspect-ratio: 1440 / 548;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+
+  @include mq("md") {
+    aspect-ratio: 375 / 460;
+  }
+}

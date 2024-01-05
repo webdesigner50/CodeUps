@@ -1,0 +1,66 @@
+@use "global" as *;
+
+.blog-contents-main {
+  width: 100%;
+}
+
+.blog-contents-main__title {
+  font-size: rem(24);
+  border-bottom: 1px solid $green1;
+  padding-bottom: rem(5);
+  @include mq("md") {
+    font-size: rem(32);
+  }
+}
+.blog-contents-main__body {
+  margin-top: rem(25);
+}
+.blog-contents-main__body p {
+  margin-top: rem(30);
+  @include mq("md") {
+    margin-top: rem(50);
+  }
+}
+.blog-contents-main__body img:nth-child(n + 1) {
+  margin-top: rem(20);
+  @include mq("md") {
+    margin-top: rem(25);
+  }
+}
+.blog-contents-main__body ul {
+  margin-top: rem(20);
+  font-size: rem(16);
+  @include mq("md") {
+    margin-top: rem(40);
+  }
+}
+.blog-contents-main__body li {
+  position: relative;
+  font-size: rem(16);
+  line-height: calc(24 / 16);
+  font-weight: $regular;
+  font-family: "Noto Sans JP", sans-serif;
+  margin-left: 1.5em;
+}
+.blog-contents-main__body li::before {
+  content: "";
+  position: absolute;
+  width: rem(18);
+  height: rem(18);
+  top: rem(2);
+  left: rem(-25);
+  background-image: url(../images/common/blog-starfish-img.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.blog-contents-main__wp-pagenavi {
+  margin-top: rem(40);
+  width: rem(158);
+  margin-left: auto;
+  margin-right: auto;
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}

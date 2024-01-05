@@ -1,0 +1,40 @@
+@use "global" as *;
+
+.blog-reviews__inner {
+  margin-left: rem(25);
+  margin-right: rem(25);
+  @include mq("md") {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.blog-reviews__img-wrap {
+  width: 100%;
+  margin-top: rem(27);
+}
+.blog-reviews__img-wrap img {
+  aspect-ratio: 294 / 218;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.blog-reviews__age {
+  font-size: rem(12);
+}
+.blog-reviews__title {
+  font-size: rem(24);
+  width: 100%;
+  margin-top: rem(10);
+}
+.blog-reviews__body {
+  margin-top: rem(15);
+}
+.blog-reviews__button {
+  margin-top: rem(35);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.blog-reviews__link:hover {
+  opacity: 0.7;
+}

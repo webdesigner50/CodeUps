@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.inner.contact-result__inner {
+  position: relative;
+  width: 100%;
+  max-width: rem(600);
+  @include mq("md") {
+    max-width: rem(750);
+  }
+}
+.contact-result__inner::before {
+  content: "";
+  position: absolute;
+  width: rem(120);
+  height: rem(55);
+  top: rem(-25);
+  left: calc(50% - min(48.5vw, rem(620)));
+  background-image: url(../images/common/top-voice-fish2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include mq("md") {
+    width: rem(301);
+    max-width: rem(1280);
+    height: rem(138);
+    top: rem(-70);
+  }
+}
+.contact-result__contents {
+  text-align: center;
+}
+.contact-result__text {
+  margin-top: rem(30);
+}
