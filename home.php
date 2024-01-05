@@ -46,7 +46,7 @@
             <?php endif; ?>
           </ul>
           <div class="blog-contents-main__wp-pagenavi">
-          <?php wp_pagenavi(); ?>
+            <?php wp_pagenavi(); ?>
           </div>
         </div>
         <div class="blog-contents__side blog-contents__side blog-contents-side layout-blog-contents-side">

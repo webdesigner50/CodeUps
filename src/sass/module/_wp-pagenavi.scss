@@ -13,7 +13,7 @@
     justify-content: center;
   }
 }
-.wp-pagenavi__page {
+.wp-pagenavi.page {
   // width: 100%;
   display: flex;
   // justify-content: space-between;
@@ -54,7 +54,7 @@
   color: $white;
   background-color: $green1;
 }
-.wp-pagenavi a.wp-pagenavi__previouspostslink {
+.wp-pagenavi a.wp-pagenavi.previouspostslink {
   // width: rem(38);
   // height: rem(38);
   margin-right: rem(34);
@@ -65,7 +65,7 @@
 // .wp-pagenavi__previouspostslink--detail {
 //   margin-right: rem(41);
 // }
-.wp-pagenavi a.wp-pagenavi__nextpostslink {
+.wp-pagenavi a.wp-pagenavi.nextpostslink {
   // width: rem(38);
   // height: rem(38);
   margin-left: rem(34);
