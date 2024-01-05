@@ -83,28 +83,8 @@ $sitemap = esc_url( home_url( '/sitemap/' ) );
                   <p><?php echo $text; ?></p>
                 <?php endif; ?>
                 </p>
-                <p class="campaign-card__text3">
-                  <?php $campaign_from_yyyy = get_field('campaign-from-yyyy'); ?>
-                  <?php if ($campaign_from_yyyy) : ?>
-                    <?php echo $campaign_from_yyyy ?>/
-                  <?php endif; ?>
-                  <?php $campaign_from_mm = get_field('campaign-from-mm'); ?>
-                  <?php if ($campaign_from_mm) : ?>
-                    <?php echo $campaign_from_mm ?>/
-                  <?php endif; ?>
-                  <?php $campaign_from_dd = get_field('campaign-from-dd'); ?>
-                  <?php if ($campaign_from_dd) : ?>
-                    <?php echo $campaign_from_dd ?>-
-                  <?php endif; ?>
-                  <?php $campaign_to_mm = get_field('campaign-to-mm'); ?>
-                  <?php if ($campaign_to_mm) : ?>
-                    <?php echo $campaign_to_mm ?>/
-                  <?php endif; ?>
-                  <?php $campaign_to_dd = get_field('campaign-to-dd'); ?>
-                  <?php if ($campaign_to_dd) : ?>
-                    <?php echo $campaign_to_dd ?>
-                  <?php endif; ?>
-                </p>
+                <p class="campaign-card__text3"><?php $campaign_from_ymd=get_field('campaign-from-ymd');
+                if($campaign_from_ymd):echo$campaign_from_ymd;?>-<?php endif;?><?php $campaign_to_ymd=get_field('campaign-to-ymd');if($campaign_to_ymd):echo$campaign_to_ymd;endif;?></p>
                 <p class="campaign-card__text4">ご予約・お問い合わせはコチラ</p>
                 <div class="campaign-card__button">
                   <a href="<?php echo $contact; ?>" class="button"><span>contact&nbsp;us</span></a>

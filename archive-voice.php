@@ -38,14 +38,7 @@
             <div class="voice-card__title">
               <div class="voice-card__title-wrap">
                 <div class="voice-card__meta">
-                  <?php
-                  $age = get_field('voice-age');
-                  ?>
-                  <p class="voice-card__age">
-                      <?php if ($age): ?>
-                        <?php echo esc_html($age); ?>
-                      <?php endif; ?>
-                  </p>
+                  <?php $age = get_field('voice-age'); ?><p class="voice-card__age"><?php if ($age): echo esc_html($age); endif; ?></p>
                   <?php $term = get_the_terms($post->ID, 'voice_category');
                     if ($term) : ?>
                       <p class="voice-card__label">
