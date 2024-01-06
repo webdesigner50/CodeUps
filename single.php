@@ -30,9 +30,9 @@
           <div class="blog-contents-main__body">
             <div>
             <?php if (has_post_thumbnail()): ?>
-            <div class="blog-detail__image">
-              <?php the_post_thumbnail(); ?>
-            </div>
+              <div class="blog-detail__image">
+                <?php the_post_thumbnail(); ?>
+              </div>
             <?php endif; ?>
             </div>
             <?php the_content(); ?>
@@ -50,7 +50,7 @@
       <?php endwhile; else: ?>
         <p>記事が見つかりませんでした</p>
       <?php endif; ?>
-    <div class="blog-detail__side blog-contents-side">
+    <div class="blog-detail__side">
         <?php get_sidebar(); ?>
     </div>
   </div>

@@ -22,10 +22,9 @@
               <a href="<?php the_permalink(); ?>" class="blog-card__link">
                 <div class="blog-card__img-wrap">
                   <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('medium'); ?>
+                    <?php the_post_thumbnail('medium'); ?>
                   <?php else : ?>
-                  <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg"
-                    alt="画像なし">
+                    <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg" alt="画像なし">
                   <?php endif; ?>
                 </div>
                 <div class="blog-card__body">
@@ -34,9 +33,7 @@
                   </div>
                   <h3 class="blog-card__title"><?php the_title() ?></h3>
                   <p class="blog-card__text">
-                    <?php if (get_the_excerpt()) : ?>
-                      <?php echo wp_trim_words(get_the_excerpt(), 89, '...'); ?>
-                    <?php endif; ?>
+                    <?php if (get_the_excerpt()) { ?><?php echo wp_trim_words(get_the_excerpt(), 89, '...'); ?><?php } ?>
                   </p>
                 </div>
               </a>
@@ -49,7 +46,7 @@
         <?php wp_pagenavi(); ?>
         </div>
       </div>
-      <div class="blog-contents__side blog-contents-side layout-blog-contents-side">
+      <div class="blog-contents__side">
         <?php get_sidebar(); ?>
       </div>
     </div>

@@ -36,9 +36,7 @@
     foreach ($terms as $term) : ?>
       <li class="category__label">
         <a href="<?php echo esc_url(get_term_link($term->term_id)); ?>" class="category__label-text
-          <?php if ($term_slug === $term->slug) :
-            echo 'current';
-          endif; ?>">
+          <?php if ($term_slug === $term->slug) { echo 'current'; } ?>">
           <?php echo $term->name; ?>
         </a>
       </li>

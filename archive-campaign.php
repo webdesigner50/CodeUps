@@ -66,11 +66,11 @@ $sitemap = esc_url( home_url( '/sitemap/' ) );
               <div class="campaign-card__price">
                 <div class="campaign-card__price-before">
                   <?php $campaign_before = get_field('campaign-before'); ?>
-                  <?php if ($campaign_before) : ?><span>¥<?php echo $campaign_before; ?></span><?php endif; ?>
+                  <?php if ($campaign_before) { ?><span>¥<?php echo $campaign_before; ?></span><?php } ?>
                 </div>
                 <div class="campaign-card__price-after">
                   <?php $campaign_after = get_field('campaign-after'); ?>
-                  <?php if ($campaign_after) : ?>¥<?php echo $campaign_after; endif; ?>
+                  <?php if ($campaign_after) { ?>¥<?php echo $campaign_after; } ?>
                 </div>
               </div>
               <div class="campaign-card__sub-wrap">
@@ -79,12 +79,14 @@ $sitemap = esc_url( home_url( '/sitemap/' ) );
                   $post_id = get_the_ID();
                   $text = get_post_meta($post_id, 'campaign-text', true);
                 ?>
-                <?php if ($text) : ?>
-                  <p><?php echo $text; ?></p>
-                <?php endif; ?>
+                <?php if ($text) { ?><p><?php echo $text; ?></p><?php } ?>
                 </p>
-                <p class="campaign-card__text3"><?php $campaign_from_ymd=get_field('campaign-from-ymd');
-                if($campaign_from_ymd):echo$campaign_from_ymd;?>-<?php endif;?><?php $campaign_to_ymd=get_field('campaign-to-ymd');if($campaign_to_ymd):echo$campaign_to_ymd;endif;?></p>
+                <p class="campaign-card__text3">
+                  <?php $campaign_from_ymd=get_field('campaign-from-ymd');
+                  if($campaign_from_ymd){echo$campaign_from_ymd; ?>-<?php } ?>
+                  <?php $campaign_to_ymd=get_field('campaign-to-ymd');
+                  if($campaign_to_ymd){echo$campaign_to_ymd;} ?>
+                </p>
                 <p class="campaign-card__text4">ご予約・お問い合わせはコチラ</p>
                 <div class="campaign-card__button">
                   <a href="<?php echo $contact; ?>" class="button"><span>contact&nbsp;us</span></a>

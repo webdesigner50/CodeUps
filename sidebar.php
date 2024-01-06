@@ -28,10 +28,9 @@
                                 <a href="<?php the_permalink(); ?>" class="blog-card-popular__link">
                                 <div class="blog-card-popular__img-wrap">
                                     <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('thumbnail'); ?>
+                                        <?php the_post_thumbnail('thumbnail'); ?>
                                     <?php else : ?>
-                                    <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg"
-                                        alt="画像なし">
+                                        <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg" alt="画像なし">
                                     <?php endif; ?>
                                 </div>
                                 <div class="blog-card-popular__body">
@@ -64,9 +63,9 @@
                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <div class="blog-reviews__img-wrap">
                             <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('medium'); ?>
+                                <?php the_post_thumbnail('medium'); ?>
                             <?php else : ?>
-                            <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg" alt="画像なし">
+                                <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg" alt="画像なし">
                             <?php endif; ?>
                         </div>
                         <div class="blog-reviews__body">

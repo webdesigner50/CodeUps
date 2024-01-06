@@ -95,9 +95,7 @@
                   <div class="campaign-card__meta">
                   <?php $term = get_the_terms($post->ID, 'campaign_category');
                     if ($term) : ?>
-                      <p class="campaign-card__label">
-                        <?php echo $term[0]->name; ?>
-                      </p>
+                      <p class="campaign-card__label"><?php echo $term[0]->name; ?></p>
                     <?php endif; ?>
                   </div>
                   <h3 class="campaign-card__title"><?php the_title(); ?></h3>
@@ -246,7 +244,7 @@
             <a href="<?php the_permalink(); ?>" class="blog-card__link">
               <div class="blog-card__img-wrap">
                 <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('medium'); ?>
+                  <?php the_post_thumbnail('medium'); ?>
                 <?php else : ?>
                   <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-image.jpg" alt="画像無し">
                 <?php endif; ?>
@@ -257,10 +255,8 @@
                 </div>
                 <h3 class="blog-card__title"><?php echo wp_trim_words(get_the_title(), 15, '…'); ?></h3>
                 <p class="blog-card__text">
-                  <?php if (get_the_excerpt()) : ?>
-                      <?php echo wp_trim_words(get_the_excerpt(), 89, '...'); ?>
-                  <?php endif; ?>
-              </p>
+                  <?php if (get_the_excerpt()) { ?><?php echo wp_trim_words(get_the_excerpt(), 89, '...'); ?><?php } ?>
+                </p>
               </div>
             </a>
           </li>
@@ -300,7 +296,7 @@
                     $age = get_field('voice-age');
                   ?>
                   <p class="voice-card__age">
-                    <?php if($age): echo esc_html($age); endif; ?>
+                    <?php if($age){ echo esc_html($age); } ?>
                   </p>
                   <?php
                     $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
@@ -312,18 +308,15 @@
                 </div>
                 <div class="voice-card__img-wrap js-colorbox colorbox">
                 <?php if (has_post_thumbnail()): ?>
-                <?php the_post_thumbnail('medium'); ?>
+                  <?php the_post_thumbnail('medium'); ?>
                 <?php else: ?>
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-image.jpg"
-                  alt="画像無し">
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/no-image.jpg" alt="画像無し">
                 <?php endif; ?>
                 </div>
               </div>
               <p class="voice-card__text">
                 <?php $voice_text = wp_trim_words(esc_html(get_field('voice-text')), 140, '...'); ?>
-                <?php if ($voice_text) : ?>
-                  <?php echo $voice_text; ?>
-                <?php endif; ?>
+                <?php if ($voice_text) { echo $voice_text; } ?>
               </p>
           </li>
           <?php endwhile; ?>

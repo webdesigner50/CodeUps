@@ -20,11 +20,8 @@
 
     <ul class="campaign__items campaign__items--sub campaign-cards">
     <!-- ループ -->
-    <?php
-    if (have_posts()) :
-      while (have_posts()) : the_post(); ?>
-
-    <li class="campaign-cards__item campaign-card">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <li class="campaign-cards__item campaign-card">
           <div class="campaign-card__img-wrap">
             <!-- <img src="./assets/images/common/top-slide-img1.jpg" alt="海の中を色とりどりの魚が泳ぐ様子" /> -->
 
@@ -62,9 +59,7 @@
                   $post_id = get_the_ID();
                   $text = get_post_meta($post_id, 'campaign-text', true);
                 ?>
-                <?php if ($text) : ?>
-                  <p><?php echo $text; ?></p>
-                <?php endif; ?>
+                <?php if ($text) { ?><p><?php echo $text; ?></p><?php } ?>
               </p>
                 <p class="campaign-card__text3"><?php the_field('campaign-from-yyyy'); ?>/<?php the_field('campaign-from-mm'); ?>/<?php the_field('campaign-from-dd'); ?>-<?php the_field('campaign-to-mm'); ?>/<?php the_field('campaign-to-dd'); ?></p>
                 <p class="campaign-card__text4">ご予約・お問い合わせはコチラ</p>
@@ -74,10 +69,11 @@
               </div>
             </div>
           </div>
-      </li>
-      <?php endwhile; else: ?>
+        </li>
+      <?php endwhile;
+    else: ?>
         <p>記事が見つかりませんでした</p>
-      <?php endif; ?>
+    <?php endif; ?>
 
     </ul>
     <div class="campaign__wp-pagenavi">

@@ -43,45 +43,29 @@
                 <div class="voice-card__meta">
                   <?php
                   $age = get_field('voice-age');
-                  // $gender = get_field('voice-gender');
                   ?>
                   <p class="voice-card__age">
-                      <?php if ($age): ?>
-                        <?php echo esc_html($age); ?>
-                      <?php endif; ?>
-                      <!-- (<?php echo esc_html($gender); ?>) -->
+                      <?php if ($age) { echo esc_html($age); } ?>
                   </p>
-                  <?php $term = get_the_terms($post->ID, 'voice_category');
-                    if ($term) : ?>
-                      <p class="voice-card__label">
-                        <?php echo $term[0]->name; ?>
-                      </p>
-                  <?php endif; ?>
+                  <?php $term = get_the_terms($post->ID, 'voice_category'); ?>
+                  <?php if ($term) { ?><p class="voice-card__label"><?php echo $term[0]->name; ?></p><?php } ?>
                 </div>
                 <p class="voice-card__title"><?php echo wp_trim_words(get_the_title(), 22, '…'); ?></p>
-                <!-- <p class="voice-card__title">
-                <?php
-                  $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
-                  if ($taxonomy_terms): ?>
-                    <p class="voice-card__category"><?php echo $taxonomy_terms[0]->name; ?></p>
-                  <?php endif; ?>
-                </p> -->
               </div>
               <div class="voice-card__img-wrap js-colorbox colorbox">
                 <?php if (has_post_thumbnail()): ?>
-                <?php the_post_thumbnail('medium'); ?>
+                  <?php the_post_thumbnail('medium'); ?>
                 <?php else: ?>
-                <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg"
-                  alt="画像無し">
+                  <img src="<?php echo esc_url(get_theme_file_uri('')); ?>/assets/images/common/no-image.jpg" alt="画像無し">
                 <?php endif; ?>
               </div>
             </div>
             <p class="voice-card__text">
-              <!-- <?php echo substr(nl2br(the_field('voice-text')), 0, 290); ?> -->
               <?php echo nl2br(the_field('voice-text')); ?>
             </p>
         </li>
-      <?php endwhile; else: ?>
+        <?php endwhile; ?>
+      <?php else: ?>
         <p>記事が見つかりませんでした</p>
       <?php endif; ?>
     </ul>
