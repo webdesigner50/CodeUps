@@ -119,14 +119,14 @@ function change_posts_per_page($query)
 add_action('pre_get_posts', 'change_posts_per_page');
 
 /*===== カスタムタクソノミー =====*/
-function custom_taxonomy_init() {
-  register_taxonomy('campaign-category', 'post', array(
-      'label' => 'Campaign Categories',
-      'hierarchical' => true,
-      'rewrite' => true,
-  ));
-}
-add_action('init', 'custom_taxonomy_init');
+// function custom_taxonomy_init() {
+//   register_taxonomy('campaign-category', 'post', array(
+//       'label' => 'Campaign Categories',
+//       'hierarchical' => true,
+//       'rewrite' => true,
+//   ));
+// }
+// add_action('init', 'custom_taxonomy_init');
 /*===== カスタムタクソノミー並び替え =====*/
 function taxonomy_orderby_description($orderby, $args)
 {
