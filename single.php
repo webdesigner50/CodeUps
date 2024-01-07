@@ -12,9 +12,9 @@
   </div>
 </div>
 
+<!-- ぱんくず -->
 <div class="breadcrumb layout-breadcrumb inner">
-  <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumb') ?>
+  <?php get_template_part('template/breadcrumb'); ?>
 </div>
 
 <section class="blog-detail layout-blog-detail">

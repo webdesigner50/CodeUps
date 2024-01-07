@@ -83,9 +83,9 @@ $sitemap = esc_url( home_url( '/sitemap/' ) );
                 </p>
                 <p class="campaign-card__text3">
                   <?php $campaign_from_ymd=get_field('campaign-from-ymd');
-                  if($campaign_from_ymd){echo$campaign_from_ymd; ?>-<?php } ?>
+                  if($campaign_from_ymd){echo$campaign_from_ymd;?>-<?php }?>
                   <?php $campaign_to_ymd=get_field('campaign-to-ymd');
-                  if($campaign_to_ymd){echo$campaign_to_ymd;} ?>
+                  if($campaign_to_ymd){echo$campaign_to_ymd;}?>
                 </p>
                 <p class="campaign-card__text4">ご予約・お問い合わせはコチラ</p>
                 <div class="campaign-card__button">

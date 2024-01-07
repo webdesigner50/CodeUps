@@ -27,7 +27,7 @@ elseif (is_page('information')) :
   $alt = 'ダイバーと熱帯魚の写真';
 
   //ブログ
-elseif (is_home() || is_single($post) || is_month()) :
+elseif (is_home() || is_single($post) || is_year() || is_month()) :
   $page_title = 'blog';
   $page_img_sp = '/assets/images/common/blog-mv-sp-img.jpg';
   $page_img_pc = '/assets/images/common/blog-mv-pc-img.jpg';
