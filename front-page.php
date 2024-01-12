@@ -102,14 +102,15 @@
                   <div class="campaign-card__wrap">
                     <p class="campaign-card__text">全部コミコミ(お一人様)</p>
                     <div class="campaign-card__price">
-                        <?php $campaign_before = number_format(floatval(str_replace(',', '', get_field('campaign-before')))); ?>
-                        <?php if ($campaign_before) : ?>
-                          <p class="campaign-card__price-before">&yen;<?php echo $campaign_before; ?></p>
-                        <?php endif; ?>
-                        <?php $campaign_after = number_format(floatval(str_replace(',', '', get_field('campaign-after')))); ?>
-                        <?php if ($campaign_after) : ?>
-                          <p class="campaign-card__price-after">&yen;<?php echo $campaign_after; ?></p>
-                        <?php endif; ?>
+                      <?php $campaign1 = get_field('campaign1'); ?>
+                      <?php if ($campaign1): ?>
+                        <div class="campaign-card__price-before">
+                          <span>¥<?php echo $campaign1['campaign-before']; ?></span>
+                        </div>
+                        <div class="campaign-card__price-after">
+                          ¥<?php echo $campaign1['campaign-after']; ?>
+                        </div>
+                      <?php endif; ?>
                     </div>
                   </div>
               </div>
@@ -292,12 +293,10 @@
               <div class="voice-card__title">
                 <div class="voice-card__title-wrap">
                   <div class="voice-card__meta">
-                  <?php
-                    $age = get_field('voice-age');
-                  ?>
-                  <p class="voice-card__age">
-                    <?php if($age){ echo esc_html($age); } ?>
-                  </p>
+                  <?php $voice_meta = get_field('voice-meta'); ?>
+                  <?php if ($voice_meta): ?>
+                    <p class="voice-card__age"><?php echo $voice_meta['voice-age']; ?>(<?php echo $voice_meta['voice-sex']; ?>)</p>
+                  <?php endif; ?>
                   <?php
                     $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
                     if ($taxonomy_terms && !is_wp_error($taxonomy_terms)): ?>
@@ -354,56 +353,55 @@
             $main_query = new WP_Query($args);
               // サブクエリでCFSの条件を追加
             if ($main_query->have_posts()) :
-              while ($main_query->have_posts()) {
-                  $main_query->the_post(); ?>
-                  <li class="price-lists__item price-list">
-                    <?php $fields = CFS()->get('price_license'); ?>
-                      <?php if ($fields) : ?>
-                        <h3 class="price-list__title">ライセンス講習</h3>
-                        <dl class="price-list__item">
-                          <?php foreach ((array)$fields as $field): ?>
-                              <dt class="price__course price__course--top"><?php echo $field['price_license-course']; ?></dt>
-                              <dd class="price__price price__price--top"> <?php echo $field['price_license-price']; ?> </dd>
-                          <?php endforeach; ?>
-                        </dl>
-                      <?php endif; ?>
-                  </li>
-                  <li class="price-lists__item price-list">
-                      <?php $fields = CFS()->get('price_experience'); ?>
-                        <?php if ($fields) : ?>
-                          <h3 class="price-list__title">体験ダイビング</h3>
+              while ($main_query->have_posts()) { $main_query->the_post(); ?>
+                  <?php $fields = CFS()->get('price_license'); ?>
+                  <?php if ($fields) : ?>
+                    <li class="price-lists__item price-list">
+                          <h3 class="price-list__title">ライセンス講習</h3>
                           <dl class="price-list__item">
-                          <?php foreach ((array)$fields as $field): ?>
-                              <dt class="price__course price__course--top"><?php echo $field['price_experience-course']; ?></dt>
-                              <dd class="price__price price__price--top"> <?php echo $field['price_experience-price']; ?> </dd>
-                          <?php endforeach; ?>
+                            <?php foreach ((array)$fields as $field): ?>
+                                <dt class="price__course price__course--top"><?php echo $field['price_license-course']; ?></dt>
+                                <dd class="price__price price__price--top"> <?php echo $field['price_license-price']; ?> </dd>
+                            <?php endforeach; ?>
                           </dl>
-                          <?php endif; ?>
-                  </li>
-                  <li class="price-lists__item price-list">
-                      <?php $fields = CFS()->get('price_fundiving'); ?>
-                        <?php if ($fields) : ?>
-                          <h3 class="price-list__title">ファンダイビング</h3>
-                          <dl class="price-list__item">
-                          <?php foreach ((array)$fields as $field): ?>
-                              <dt class="price__course price__course--top"><?php echo $field['price_fundiving-course']; ?></dt>
-                              <dd class="price__price price__price--top"> <?php echo $field['price_fundiving-price']; ?> </dd>
-                          <?php endforeach; ?>
-                          </dl>
-                          <?php endif; ?>
-                  </li>
-                  <li class="price-lists__item price-list">
-                      <?php $fields = CFS()->get('price_special'); ?>
-                        <?php if ($fields) : ?>
-                          <h3 class="price-list__title">スペシャルダイビング</h3>
-                          <dl class="price-list__item">
-                          <?php foreach ((array)$fields as $field): ?>
-                              <dt class="price__course price__course--top"><?php echo $field['price_special-course']; ?></dt>
-                              <dd class="price__price price__price--top"> <?php echo $field['price_special-price']; ?> </dd>
-                          <?php endforeach; ?>
-                          </dl>
-                          <?php endif; ?>
-                  </li>
+                    </li>
+                  <?php endif; ?>
+                  <?php $fields = CFS()->get('price_experience'); ?>
+                  <?php if ($fields) : ?>
+                    <li class="price-lists__item price-list">
+                            <h3 class="price-list__title">体験ダイビング</h3>
+                            <dl class="price-list__item">
+                            <?php foreach ((array)$fields as $field): ?>
+                                <dt class="price__course price__course--top"><?php echo $field['price_experience-course']; ?></dt>
+                                <dd class="price__price price__price--top"> <?php echo $field['price_experience-price']; ?> </dd>
+                            <?php endforeach; ?>
+                            </dl>
+                    </li>
+                  <?php endif; ?>
+                  <?php $fields = CFS()->get('price_fundiving'); ?>
+                  <?php if ($fields) : ?>
+                    <li class="price-lists__item price-list">
+                            <h3 class="price-list__title">ファンダイビング</h3>
+                            <dl class="price-list__item">
+                            <?php foreach ((array)$fields as $field): ?>
+                                <dt class="price__course price__course--top"><?php echo $field['price_fundiving-course']; ?></dt>
+                                <dd class="price__price price__price--top"> <?php echo $field['price_fundiving-price']; ?> </dd>
+                            <?php endforeach; ?>
+                            </dl>
+                    </li>
+                  <?php endif; ?>
+                  <?php $fields = CFS()->get('price_special'); ?>
+                  <?php if ($fields) : ?>
+                    <li class="price-lists__item price-list">
+                            <h3 class="price-list__title">スペシャルダイビング</h3>
+                            <dl class="price-list__item">
+                            <?php foreach ((array)$fields as $field): ?>
+                                <dt class="price__course price__course--top"><?php echo $field['price_special-course']; ?></dt>
+                                <dd class="price__price price__price--top"> <?php echo $field['price_special-price']; ?> </dd>
+                            <?php endforeach; ?>
+                            </dl>
+                    </li>
+                  <?php endif; ?>
                 <?php 
                 }
               endif; ?>

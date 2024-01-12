@@ -64,28 +64,32 @@ $sitemap = esc_url( home_url( '/sitemap/' ) );
             <div class="campaign-card__wrap">
               <p class="campaign-card__text">全部コミコミ(お一人様)</p>
               <div class="campaign-card__price">
-                <div class="campaign-card__price-before">
-                  <?php $campaign_before = get_field('campaign-before'); ?>
-                  <?php if ($campaign_before) { ?><span>¥<?php echo $campaign_before; ?></span><?php } ?>
-                </div>
-                <div class="campaign-card__price-after">
-                  <?php $campaign_after = get_field('campaign-after'); ?>
-                  <?php if ($campaign_after) { ?>¥<?php echo $campaign_after; } ?>
-                </div>
+                  <?php $campaign1 = get_field('campaign1'); ?>
+                  <?php if ($campaign1): ?>
+                    <div class="campaign-card__price-before">
+                      <span>¥<?php echo $campaign1['campaign-before']; ?></span>
+                    </div>
+                    <div class="campaign-card__price-after">
+                      ¥<?php echo $campaign1['campaign-after']; ?>
+                    </div>
+                  <?php endif; ?>
               </div>
               <div class="campaign-card__sub-wrap">
                 <p class="campaign-card__text2">
-                <?php
-                  $post_id = get_the_ID();
-                  $text = get_post_meta($post_id, 'campaign-text', true);
-                ?>
-                <?php if ($text) { ?><p><?php echo $text; ?></p><?php } ?>
+
+                  <?php $campaign3 = get_field('campaign3'); ?>
+                  <?php if ($campaign3): ?>
+                    <?php echo$campaign3['campaign-text'];?>
+                  <?php endif; ?>
+
                 </p>
+
                 <p class="campaign-card__text3">
-                  <?php $campaign_from_ymd=get_field('campaign-from-ymd');
-                  if($campaign_from_ymd){echo$campaign_from_ymd;?>-<?php }?>
-                  <?php $campaign_to_ymd=get_field('campaign-to-ymd');
-                  if($campaign_to_ymd){echo$campaign_to_ymd;}?>
+                  <?php $campaign2 = get_field('campaign2'); ?>
+                  <?php if ($campaign2): ?>
+                    <?php echo$campaign2['campaign-from-ymd'];?>-
+                    <?php echo$campaign2['campaign-to-ymd'];?>
+                  <?php endif; ?>
                 </p>
                 <p class="campaign-card__text4">ご予約・お問い合わせはコチラ</p>
                 <div class="campaign-card__button">

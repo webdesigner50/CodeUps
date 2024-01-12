@@ -38,9 +38,14 @@
             <div class="voice-card__title">
               <div class="voice-card__title-wrap">
                 <div class="voice-card__meta">
-                  <?php $age = get_field('voice-age'); ?><p class="voice-card__age"><?php if ($age){ echo esc_html($age); } ?></p>
-                  <?php $term = get_the_terms($post->ID, 'voice_category');
-                    if ($term) { ?><p class="voice-card__label"><?php echo $term[0]->name; ?></p><?php } ?>
+                  <?php $voice_meta = get_field('voice-meta'); ?>
+                  <?php if ($voice_meta): ?>
+                    <p class="voice-card__age"><?php echo $voice_meta['voice-age']; ?>(<?php echo $voice_meta['voice-sex']; ?>}</p>
+                  <?php endif; ?>
+                  <?php $term = get_the_terms($post->ID, 'voice_category'); ?>
+                  <?php if ($term): ?>
+                    <p class="voice-card__label"><?php echo $term[0]->name; ?></p>
+                  <?php endif; ?>
                 </div>
                 <p class="voice-card__title"><?php echo wp_trim_words(get_the_title(), 20, '…'); ?></p>
               </div>
