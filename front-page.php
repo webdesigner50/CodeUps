@@ -146,14 +146,15 @@
                   <div class="campaign-card__wrap">
                     <p class="campaign-card__text">全部コミコミ(お一人様)</p>
                     <div class="campaign-card__price">
-                        <?php $campaign_before = number_format(floatval(str_replace(',', '', get_field('campaign-before')))); ?>
-                        <?php if ($campaign_before) : ?>
-                          <p class="campaign-card__price-before">&yen;<?php echo $campaign_before; ?></p>
-                        <?php endif; ?>
-                        <?php $campaign_after = number_format(floatval(str_replace(',', '', get_field('campaign-after')))); ?>
-                        <?php if ($campaign_after) : ?>
-                          <p class="campaign-card__price-after">&yen;<?php echo $campaign_after; ?></p>
-                        <?php endif; ?>
+                      <?php $campaign1 = get_field('campaign1'); ?>
+                      <?php if ($campaign1): ?>
+                        <div class="campaign-card__price-before">
+                          <span>¥<?php echo $campaign1['campaign-before']; ?></span>
+                        </div>
+                        <div class="campaign-card__price-after">
+                          ¥<?php echo $campaign1['campaign-after']; ?>
+                        </div>
+                      <?php endif; ?>
                     </div>
                   </div>
               </div>
